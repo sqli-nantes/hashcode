@@ -23,9 +23,6 @@ class Coord {
         return new Coord(r, c+1);
     }
 
-    boolean isVisibleOn(Painting p) {
-        return p.get(r, c);
-    }
 
     @Override
     public String toString() {

@@ -4,28 +4,37 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        PaintingReader pr = new PaintingReader();
+        SimulationReader pr = new SimulationReader();
 
-        Painting p = pr.readFile("test.in");
+//        Simulation sim = pr.readFile("basic.in");
+        Simulation sim = pr.readFile("busy_day.in");
 
+        System.out.println(sim);
 
-        // découpe le proiblèmes : des formes à partir à partir desquelles on va savoir
-        // si on applique des trucs ou pas.
-        ShapeExtractor se = new ShapeExtractor(p);
-        se.extractShapes();
-        se.shapes.stream().forEach(x -> {
-                System.out.println(x.height());
-                System.out.println(x.width());
-                System.out.println(x);});
+        List<Command> commands = DeliverSystem.deliver(sim);
 
 
-        for(Shape shape : se.shapes) {
-            ShapePainter po = new ShapePainter();
-            List<Instruction> instructions = po.optimize(shape);
 
-            System.out.println(instructions);
-        }
 
+        System.out.println(commands.size());
+        // a partir du painting, je sors les instructions.
+        CommandWriter iw = new CommandWriter();
+        iw.writeTo("out.txt", commands);
+
+//        ShapeExtractor se = new ShapeExtractor(p);
+//        se.extractShapes();
+//        se.shapes.stream().forEach(x -> {
+//                System.out.println(x.height());
+//                System.out.println(x.width());
+//                System.out.println(x);});
+//
+//
+//        for(Shape shape : se.shapes) {
+//            ShapePainter po = new ShapePainter();
+//            List<Instruction> instructions = po.optimize(shape);
+//
+//            System.out.println(instructions);
+//        }
 
 
 //        System.out.println(instructions.size());

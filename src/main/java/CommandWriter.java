@@ -5,17 +5,17 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class InstructionWriter {
+public class CommandWriter {
 
 
-    void writeTo(String filename, List<Instruction> instructions) throws IOException {
+    void writeTo(String filename, List<Command> commands) throws IOException {
 
         Path path = Paths.get(filename);
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
-            writer.write(""+instructions.size());
+            writer.write(""+commands.size());
             writer.newLine();
-            for(Instruction instruction : instructions) {
-                writer.write(""+instruction);
+            for(Command command : commands) {
+                writer.write(""+command);
                 writer.newLine();
             }
         }

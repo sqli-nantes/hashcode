@@ -61,6 +61,7 @@ public class DeliverSystem {
                             long delta = (distance(new int[]{d.row, d.col}, new int[]{w.row, w.col}) + 1);
                             sim.turns -= delta;
                             if (sim.turns < 0) {
+                                System.out.println("Truns over :(");
                                 break mainLbl;
                             }
                             commands.add(new LoadCommand(d.id, w.id, order.id, p, nbProducts));
@@ -95,8 +96,10 @@ public class DeliverSystem {
 
 
 
-    static long distance(int[] pointA, int[] pointB){
-        return Math.round( //
+    static int distance(int[] pointA, int[] pointB) {
+
+        //Math.ceil()
+        return (int)Math.ceil( //
                 Math.sqrt(//
                         (Math.pow(pointB[0] - pointA[0],2)//
                          + Math.pow(pointB[1] - pointA[1],2)

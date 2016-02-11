@@ -9,7 +9,7 @@ public class LoadCommand extends GenericCommand {
 
     @Override
     public String toString() {
-        return droneId+" L "+orderId+" "+productId+" "+nbProducts;
+        return droneId+" L "+warehouseId+" "+productId+" "+nbProducts;
     }
 }
 

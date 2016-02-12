@@ -7,6 +7,8 @@ public class Main {
         SimulationReader pr = new SimulationReader();
 
 //        Simulation sim = pr.readFile("basic.in");
+//        Simulation sim = pr.readFile("busy_day.in");
+//        Simulation sim = pr.readFile("mother_of_all_warehouses.in");
         Simulation sim = pr.readFile("redundancy.in");
 
         System.out.println(sim);
